@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> List Tasks</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Mã GD 
+                </th>
+                <th>
+                  Quy trình
+                </th>
+                <th>
+                  Mã kho
+                </th>
+                <th>
+                  Mã TSBD
+                </th>
+                <th>
+                  Loại TSBD 
+                </th>
+                <th>
+                    Số CIF
+                </th>
+                <th>
+                    Tên khách hàng
+                </th>
+                <th>
+                    Trạng thái
+                </th>
+                <th>
+                    Chi tiết
+                </th>
+              </thead>
+              <tbody *ngIf="processes">
+                <tr *ngFor="let process of processes.content " class="task ng-scope active">
+                  <td>{{process.process.transCode}}</td>
+                  <td>{{process.process.type}}</td>
+                  <td>{{process.storeAsset.storeCode}}</td>
+                  <td>{{process.storeAsset.tsbdCode}}</td>
+                  <td>{{process.storeAsset.tsbdType}}</td>
+                  <td>{{process.customer.cifNo}}</td>
+                  <td>{{process.customer.name}}</td>
+                  <td>{{process.process.status}}</td>
+                  <td><a class="button" routerLink="/processDetail/{{process.process.id}}"><i class="nc-icon nc-paper"></i></a></td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="!processes">
+                <tr class="task ng-scope active">
+                  <td colspan="5"><i>Không có dữ liệu</i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

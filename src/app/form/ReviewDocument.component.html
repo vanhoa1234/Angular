@@ -1,0 +1,137 @@
+<div class="card card-user">
+    <div class="card-header">
+        <h5 class="card-title">Thông tin khách hàng</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{customerInfo.name.fullName}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>CIF</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{customerInfo.cifNo}}" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Số giấy tờ tùy thân</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{customerInfo.id.idNo}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{customerInfo.contactInfo.emailAddress}}" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Điện thoại</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{customerInfo.contactInfo.mobileNo}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Địa chỉ</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{customerInfo.contactInfo.addressInfo}}" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Ngày sinh</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{customerInfo.birthDate}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Giới tính</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{customerInfo.gender}}" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 pr-1">
+            <label title="Đồng ý duyệt" class="container"> Đồng ý duyệt
+                <input type="checkbox"   [(ngModel)]="isApproval"  class="form-control" placeholder="Nguyen Van An">
+          </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 pr-1">
+            <button *ngIf="canSave" (click)="saveProcessData()"  class="btn btn-primary btn-round">Lưu</button>
+            <button *ngIf="canComplete" (click)="completeTask()"  class="btn btn-primary btn-round">{{buttonApprovalText}}</button>
+        </div>
+    </div>
+</div>
+<!-- <div *ngIf="!isFirst" class="card card-user">
+    <div class="card-header">
+        <h5 class="card-title">Danh sách tài sản bảo đảm</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Số CIF
+                        </th>
+                        <th>
+                          Tên tài sản bảo đảm
+                        </th>
+                        <th>
+                          Giá trị
+                        </th>
+                        <th>
+                          Loại
+                        </th>
+                        <th>
+                          Số hợp đồng  {{collateral.content.collateralInfo.length}}
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let collate of collateral.content.collateralInfo" class="ng-scope active">
+                          <td>{{collate.cifNo}}</td>
+                          <td>{{collate.name}}</td>
+                          <td>{{collate.value}}</td>
+                          <td>{{collate.type}}</td>
+                          <td>{{collate.contractno}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 pr-1">
+                <label title="Đồng ý duyệt">
+                <input type="checkbox"   [(ngModel)]="isApproval"  class="form-control" placeholder="Nguyen Van An">
+             Đồng ý duyệt </label>
+            </div>
+                </div>
+        <div class="row">
+            <div class="col-md-12 pr-1">
+                <button *ngIf="canSave" (click)="saveProcessData()"  class="btn btn-primary btn-round">Lưu</button>
+                <button *ngIf="canComplete" (click)="completeTask()"  class="btn btn-primary btn-round">Hoàn thành</button>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+<!-- <input-document *ngIf="isFirst"></input-document> -->
+

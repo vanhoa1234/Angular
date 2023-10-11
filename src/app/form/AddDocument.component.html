@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-2 pr-1">
+            <div class="form-group">
+              <label>Loại tài liêu</label>
+              <select
+            class="custom-select mb-3" [(ngModel)]="documentTypeSelected"
+            >
+            <option *ngFor="let doctype of documentType" [ngValue]="doctype">
+                {{ doctype.name }}
+            </option>
+        </select>
+           
+            </div>
+          </div>
+          
+          <div class="col-md-2 px-1">
+            <div class="form-group">
+              <label>Mã tài liệu</label>
+              <input type="text" (input)="document.docCode=$event.target.value"  [ngModel]="document.docCode" class="form-control" placeholder="Nhập mã tài liệu" >
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <label>Tên tài liệu</label>
+              <input required  type="text" (input)="document.docName=$event.target.value" [ngModel]="document.docName" class="form-control" placeholder="Tên tài liệu">
+            </div>
+          </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <label>File tài liệu</label>
+              <input type="file" (change)="selectFile($event)" />
+           
+            </div>
+          </div>
+         <div class="col-md-2 pl-1">
+            <button
+            class="btn btn-success btn-sm"
+            [disabled]="!selectedFiles"
+            (click)="upload()"
+          >
+            Upload
+          </button>
+         </div>
+          <div class="col-md-2 pl-1">
+            <div class="form-group">
+              <button  (click)="addDocument()"  class="btn btn-primary btn-round">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    Loại tài liệu
+                  </th>
+                  <th>
+                    Mã tài liệu
+                  </th>
+                  <th>
+                    Tên tài liệu
+                  </th>
+                  <th>
+                    Tên file
+                  </th>
+                  <th>
+                    #
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let doc of documentList" class="ng-scope active">
+                    <td>{{doc.docType}} | {{doc.docTypeName}}</td>
+                    <td>{{doc.docCode}}</td>
+                    <td>{{doc.docName}}</td>
+                    <td><a class="button" (click)= "download(doc.url)">{{doc.url}}</a></td>
+                    <td><button class="btn btn-primary btn-round" (click)="removeItem(doc)">-</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        </div>
+      </div>
+      </div>
+  </div>

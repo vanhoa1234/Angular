@@ -1,0 +1,107 @@
+<div *ngIf="processId!=undefined" class="card card-user">
+    <div class="card-header">
+        <h5 class="card-title">Thông tin hồ sơ</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Mã giao dịch</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{process.content[0].process.transCode}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Trạng thái</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{process.content[0].process.status}}" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Mã kho</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{process.content[0].storeAsset.storeCode}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Mã CIF</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{process.content[0].customer.cifNo}}" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Tên khách hàng</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{process.content[0].customer.name}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Loại khách hàng</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{process.content[0].customer.type}}" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Mã TSBD</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{process.content[0].storeAsset.tsbdCode}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Loại TSBD</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{process.content[0].storeAsset.tsbdType}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 pr-1">
+                <div class="form-group">
+                    <label>Giá trị TSBD</label>
+                    <input type="text" disabled="" placeholder="Company" value="{{process.content[0].storeAsset.tsbdValue}}" class="form-control">
+                </div>
+            </div>
+        </div>
+      
+    </div>
+    <div class="card-header">
+        <h5 class="card-title">Danh sách giấy tờ</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12 pr-1">
+                <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Mã giấy tờ
+                        </th>
+                        <th>
+                          Tên giấy tờ
+                        </th>
+                        <th>
+                          Loại giấy tờ
+                        </th>
+                        <th>
+                          View/Dowload 
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let document of process.content[0].documents" class="task ng-scope active">
+                          <td>{{document.docCode}}</td>
+                          <td>{{document.docName}}</td>
+                          <td>{{document.docType}}</td>
+                          <td><i class="nc-icon nc-tap-01"></i></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+            </div>
+            
+          </div>
+    </div>
+</div>
+

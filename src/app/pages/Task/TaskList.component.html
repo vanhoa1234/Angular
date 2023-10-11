@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> List Tasks</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Task Id
+                </th>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Process Name
+                </th>
+                <th>
+                  Task State
+                </th>
+                <th>
+                  Complete 
+                </th>
+              </thead>
+              <tbody *ngIf="tasks">
+                <tr *ngFor="let task of tasks.content " class="task ng-scope active">
+                  <td><a class="button" routerLink="/taskDetail/{{task.id}}">{{task.id}}</a></td>
+                  <td>{{task.name}}</td>
+                  <td>{{task.processName}}</td>
+                  <td>{{task.taskState}}</td>
+                  <td><i class="nc-icon nc-check-2 green"></i></td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="!tasks">
+                <tr class="task ng-scope active">
+                  <td colspan="5"><i>Không có dữ liệu</i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
